@@ -13,6 +13,29 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / "data"
 HIDDEN_LOCATIONS = {"given to thomas"}
 
+# Clean up hand-typed set names so the list groups sensibly.
+SET_NAMES = {
+    "Revised (1994)": "Revised",
+    "Revised/4th (white border)": "Revised",
+    "The Dark (1994)": "The Dark",
+    "FEM + The Dark": "The Dark",
+    "CHK": "Champions of Kamigawa",
+    "Kamigawa": "Champions of Kamigawa",
+    "CHK/GPT": "Mixed bulk (Kamigawa / Ravnica / Mirrodin)",
+    "CHK/Darksteel": "Mixed bulk (Kamigawa / Ravnica / Mirrodin)",
+    "CHK/MRD/DST": "Mixed bulk (Kamigawa / Ravnica / Mirrodin)",
+    "CHK/GPT/MRD/TSP": "Mixed bulk (Kamigawa / Ravnica / Mirrodin)",
+    "Alpha/Beta/CE? (black border)": "Other / to verify",
+    "Unlimited/Revised?": "Other / to verify",
+    "1994 DragonCon promo": "Other / to verify",
+    "": "Misc. (set not recorded)",
+}
+
+
+def clean_set(s):
+    s = (s or "").strip()
+    return SET_NAMES.get(s, s)
+
 
 def num(s):
     try:
@@ -28,6 +51,9 @@ def main():
          ("card", "set", "set_code", "qty", "est_each", "est_total", "notes", "photo", "status", "asking_price")}
         for c in hv["cards"]
     ]
+    for c in cards:
+        if c["set"] == "CHK":
+            c["set"] = "Champions of Kamigawa"
 
     inventory = []
     with open(DATA / "full_inventory.csv", newline="") as f:
@@ -35,7 +61,7 @@ def main():
             if (row.get("Location") or "").strip().lower() in HIDDEN_LOCATIONS:
                 continue
             inventory.append({
-                "set": (row.get("Set") or "").strip(),
+                "set": clean_set(row.get("Set")),
                 "card": (row.get("Card") or "").strip(),
                 "rarity": (row.get("Rarity") or "").strip(),
                 "qty": int(num(row.get("Qty")) or 0),
