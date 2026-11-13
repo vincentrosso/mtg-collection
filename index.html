@@ -8,52 +8,26 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="site-head">
-  <div class="wrap">
-    <h1>Vintage MTG Collection</h1>
-    <p class="sets">1994 Revised · Legends · The Dark · Antiquities</p>
-    <p class="intro">A personal collection, owned since 1994. All cards are raw (ungraded).</p>
-    <nav>
-      <a href="#featured">Featured</a>
-      <a href="#lots">Lots</a>
-      <a href="#inventory">Full inventory</a>    </nav>
+<header class="wrap head">
+  <h1>Vintage MTG Collection</h1>
+  <p class="sets">1994 Revised · Legends · The Dark · Antiquities</p>
+  <p class="intro">A personal collection, owned since 1994. All cards are raw (ungraded). Prices are market estimates per card.</p>
+  <div class="controls">
+    <input id="q" type="search" placeholder="Search cards or notes" aria-label="Search">
+    <select id="setFilter" aria-label="Jump to group"><option value="">All groups</option></select>
   </div>
+  <p id="count" class="count"></p>
 </header>
 
 <main class="wrap">
-  <section id="featured">
-    <h2>Featured cards</h2>
-    <div id="grid" class="grid"></div>
-  </section>
-
-  <section id="lots">
-    <h2>Lots</h2>
-    <div class="lots">
-      <article><h3>Revised complete set + extras</h3><p>A complete Revised (1994) set, plus extra copies.</p></article>
-      <article><h3>The Dark — complete set</h3><p>All 119 cards from The Dark, kept together in a binder.</p></article>
-      <article><h3>Fallen Empires lot</h3><p>About 920 Fallen Empires cards.</p></article>
-      <article><h3>Revised commons &amp; uncommons</h3><p>About 1,300 Revised commons and uncommons, counted.</p></article>
-      <article><h3>Bulk</h3><p>About 1,250 cards — Kamigawa, Ravnica and The Dark.</p></article>
-    </div>
-  </section>
-
-  <section id="inventory">
-    <h2>Full inventory</h2>
-    <div class="controls">
-      <input id="q" type="search" placeholder="Search card names or notes" aria-label="Search inventory">
-      <select id="setFilter" aria-label="Filter by set"><option value="">All sets</option></select>
-    </div>
-    <p id="count" class="count"></p>
-    <div class="table-wrap">
-      <table id="inv">
-        <thead><tr>
-          <th data-k="card">Card</th><th data-k="set">Set</th><th data-k="rarity">Rarity</th>
-          <th data-k="qty" class="n">Qty</th><th data-k="price" class="n">Price</th><th data-k="notes">Notes</th>
-        </tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
+  <div class="table-wrap">
+    <table id="list">
+      <thead><tr>
+        <th>Card</th><th class="c-set">Set</th><th class="c-r">Rarity</th>
+        <th class="n">Qty</th><th class="n">Price</th><th class="c-notes">Notes</th>
+      </tr></thead>
+    </table>
+  </div>
 </main>
 
 <footer class="wrap fine">Not affiliated with Wizards of the Coast.</footer>
