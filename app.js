@@ -18,27 +18,27 @@
   for (const c of cards) {
     const status = (c.status || "available").toLowerCase();
     const tile = el("article", "tile" + (status === "sold" ? " is-sold" : ""));
-    const ph = el("div", "ph");
     if (c.photo) {
+      const ph = el("div", "ph");
       const img = new Image();
       img.src = "photos/" + c.photo;
       img.alt = c.card;
       img.loading = "lazy";
-      img.onerror = () => { ph.textContent = "Photo coming soon"; };
+      img.onerror = () => ph.remove();
       ph.appendChild(img);
-    } else {
-      ph.textContent = "Photo coming soon";
+      tile.appendChild(ph);
     }
-    tile.appendChild(ph);
 
     const body = el("div", "body");
     body.appendChild(el("div", "name", c.card));
-    body.appendChild(el("div", "meta", c.set + (c.qty > 1 ? " · ×" + c.qty : "")));
+    body.appendChild(el("div", "meta", c.set + " · Qty " + c.qty));
     if (c.notes) body.appendChild(el("div", "note", c.notes));
     const foot = el("div", "foot");
-    foot.appendChild(c.asking_price != null
-      ? el("span", "price", money(c.asking_price))
-      : el("span", "price offer", "Make an offer"));
+    let priceEl;
+    if (c.asking_price != null) priceEl = el("span", "price", money(c.asking_price) + (c.qty > 1 ? " ea" : ""));
+    else if (c.est_each) priceEl = el("span", "price", "~" + money(c.est_each) + (c.qty > 1 ? " ea" : ""));
+    else priceEl = el("span", "price offer", "Make an offer");
+    foot.appendChild(priceEl);
     foot.appendChild(el("span", "badge " + status, status));
     body.appendChild(foot);
     tile.appendChild(body);

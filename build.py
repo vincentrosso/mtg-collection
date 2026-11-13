@@ -25,7 +25,7 @@ def main():
     hv = json.loads((DATA / "high_value.json").read_text())
     cards = [
         {k: c.get(k) for k in
-         ("card", "set", "set_code", "qty", "est_total", "notes", "photo", "status", "asking_price")}
+         ("card", "set", "set_code", "qty", "est_each", "est_total", "notes", "photo", "status", "asking_price")}
         for c in hv["cards"]
     ]
 
