@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vintage MTG Collection</title>
+<meta name="description" content="Personal vintage Magic: The Gathering collection for sale — Revised, Legends, The Dark, Antiquities. Raw, ungraded, owned since 1994.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap">
+    <h1>Vintage MTG Collection</h1>
+    <p class="sets">1994 Revised · Legends · The Dark · Antiquities</p>
+    <p class="intro">A personal collection, owned since 1994. All cards are raw (ungraded).</p>
+    <nav>
+      <a href="#featured">Featured</a>
+      <a href="#lots">Lots</a>
+      <a href="#inventory">Full inventory</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="featured">
+    <h2>Featured cards</h2>
+    <div id="grid" class="grid"></div>
+  </section>
+
+  <section id="lots">
+    <h2>Lots</h2>
+    <div class="lots">
+      <article><h3>Revised near-complete set</h3><p>Revised (1994), complete apart from the dual lands, which are listed individually above.</p></article>
+      <article><h3>The Dark — complete set</h3><p>All 119 cards from The Dark, kept together in a binder.</p></article>
+      <article><h3>Fallen Empires lot</h3><p>About 920 Fallen Empires cards.</p></article>
+      <article><h3>Revised commons &amp; uncommons</h3><p>About 1,300 Revised commons and uncommons, counted.</p></article>
+      <article><h3>Bulk</h3><p>About 1,250 cards — Kamigawa, Ravnica and The Dark.</p></article>
+    </div>
+  </section>
+
+  <section id="inventory">
+    <h2>Full inventory</h2>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search card names or notes" aria-label="Search inventory">
+      <select id="setFilter" aria-label="Filter by set"><option value="">All sets</option></select>
+    </div>
+    <p id="count" class="count"></p>
+    <div class="table-wrap">
+      <table id="inv">
+        <thead><tr>
+          <th data-k="card">Card</th><th data-k="set">Set</th><th data-k="rarity">Rarity</th>
+          <th data-k="qty" class="n">Qty</th><th data-k="price" class="n">Price</th><th data-k="notes">Notes</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Interested in a card or a lot? Get in touch: <a href="mailto:CONTACT_EMAIL_HERE">CONTACT_EMAIL_HERE</a></p>
+    <p class="fine">Prices marked “Make an offer” are open to offers. Cards are shown as-is; ask for more photos.</p>
+  </section>
+</main>
+
+<footer class="wrap fine">Not affiliated with Wizards of the Coast.</footer>
+
+<script src="data/bundle.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
