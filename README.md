@@ -16,7 +16,6 @@ open index.html       # works straight from disk
 - **Set a price:** set `asking_price` (a number). `null` shows "Make an offer".
 - **Add photos:** drop `underground-sea.jpg` (and `underground-sea-back.jpg`) into `photos/`, then set
   that card's `photo` to `"underground-sea.jpg"`. Use your own photos only.
-- **Contact:** replace both `CONTACT_EMAIL_HERE` in `index.html` once you pick an address.
 
 ## Deploy
 
